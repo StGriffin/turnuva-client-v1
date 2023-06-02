@@ -1,0 +1,78 @@
+/* table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 10px;
+  }
+  
+  th {
+    background-color: lightgray;
+  } */
+
+  .standingTable table {
+  margin: 30px auto;
+  border-collapse: collapse;
+}
+
+.standingTable {
+  margin: 0px 0% 30px 0%;
+}
+
+.standingTable th, td {
+  padding: 10px;
+}
+
+.standingTable th {
+  background-color: black;
+  color: #ffe221;
+}
+
+.standingHead {
+  text-align: center;
+  text-decoration: none;
+  color: #ffe221;
+  margin: 30px;
+  display: block;
+}
+
+.wpos {
+  text-align: center;
+}
+
+.wpos td {
+  color: #77ff21;
+}
+
+.pos {
+  text-align: center;
+}
+
+.pos td {
+  color: #ff7b21;
+}
+
+table .standingCol {
+  border-bottom: 1px solid #ffffff;
+}
+
+.wpos:hover {
+  background-color: #77ff21;
+}
+
+.wpos:hover td {
+  color: #000000;
+}
+
+.pos:hover {
+  background-color: #ff7b21;
+}
+
+.pos:hover td {
+  color: #000000;
+}
+.navbar {
+  margin-bottom: 0; /* Navbar ile arasındaki boşluğu kaldırmak için ekledik */
+}

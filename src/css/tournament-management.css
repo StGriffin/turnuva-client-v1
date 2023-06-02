@@ -1,0 +1,22 @@
+.container {
+    padding-top: 0.3px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .card-title {
+    margin-bottom: 20px;
+  }
+  
+  .table th {
+    font-weight: bold;
+  }
+
+th,
+td {
+  padding: 10px;
+  text-align: center; /* Takım oyuncu sayılarının ortalanması için ekledik */
+}
+
