@@ -256,6 +256,7 @@ function TournamentManagement() {
                         >
                           Düzenle
                         </button>
+                        
                         <button
                           type="button"
                           className="btn btn-danger btn-sm"
@@ -364,7 +365,7 @@ function TournamentManagement() {
                           : null
                       }
                       isMulti
-                      name="colors"
+                      name="teamListSelect"
                       className="basic-multi-select"
                       classNamePrefix="select"
                       options={availableTeams.map((team) => ({

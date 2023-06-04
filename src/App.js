@@ -9,12 +9,11 @@ import Login from "./components/login-component";
 import Register from "./components/register-component";
 import Home from "./components/home-component";
 import Profile from "./components/profile-component";
-import BoardUser from "./components/board-user-component";
 import BoardTeamLeader from "./components/board-teamleader-component";
-import BoardAdmin from "./components/board-admin-component";
 import StandingsComponent from "./components/standings-component";
 import TournamentManagement from "./components/tournament-management-component";
 import TeamManagement from "./components/team-management-component";
+import MatchManagement from "./components/match-management-component";
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +36,7 @@ class App extends Component {
         currentUser: user,
         showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
         showAdminBoard: user.roles.includes("ROLE_ADMIN"),
-        showManagementBoard:user.roles.includes("NORMAL")
+        showManagementBoard:user.roles.includes("TAKIM_SORUMLUSU") || user.roles.includes("NORMAL")
       });
     }
   }
@@ -84,7 +83,7 @@ class App extends Component {
 
             {showManagementBoard && (
               <li className="nav-item">
-                <Link to={"/management"} className="nav-link">
+                <Link to={"/matchManagement"} className="nav-link">
                   Karşılaşma Yönetimi
                 </Link>
               </li>
@@ -109,14 +108,6 @@ class App extends Component {
               <li className="nav-item">
                 <Link to={"/admin"} className="nav-link">
                   Admin Board
-                </Link>
-              </li>
-            )}
-
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/user"} className="nav-link">
-                  User
                 </Link>
               </li>
             )}
@@ -159,12 +150,10 @@ class App extends Component {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/user" element={<BoardUser />} />
-            {/* <Route path="/mod" element={<BoardTeamLeader />} />
-            <Route path="/admin" element={<BoardAdmin />} /> */}
             <Route path="/standings" element={<StandingsComponent />} />
             <Route path="/management" element={<TournamentManagement />} />
             <Route path="/teamManagement" element={<TeamManagement />} />
+            <Route path="/matchManagement" element={<MatchManagement />} />
           </Routes>
         </div>
       </div>
