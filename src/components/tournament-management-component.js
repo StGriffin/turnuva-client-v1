@@ -48,6 +48,7 @@ function TournamentManagement() {
       .then((data) => {
         if (Array.isArray(data)) {
           setTournaments(data);
+          console.log(data)
         } else {
           console.error('Tournaments verisi hatalı:', data);
         }

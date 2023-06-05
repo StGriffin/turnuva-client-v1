@@ -36,7 +36,7 @@ class App extends Component {
         currentUser: user,
         showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
         showAdminBoard: user.roles.includes("ROLE_ADMIN"),
-        showManagementBoard:user.roles.includes("TAKIM_SORUMLUSU") || user.roles.includes("NORMAL")
+        showManagementBoard:user.roles.includes("TAKIM_SORUMLUSU") || user.roles.includes("NORMAL") || user.roles.includes("SISTEM_YONETICISI")
       });
     }
   }

@@ -1,78 +1,56 @@
-/* table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th, td {
-    border: 1px solid black;
-    padding: 10px;
-  }
-  
-  th {
-    background-color: lightgray;
-  } */
-
-  .standingTable table {
+.standingTable {
   margin: 30px auto;
+  width: 90%;
+}
+
+.standingTable table {
+  width: 100%;
   border-collapse: collapse;
 }
 
-.standingTable {
-  margin: 0px 0% 30px 0%;
-}
-
-.standingTable th, td {
+.standingTable th,
+.standingTable td {
   padding: 10px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .standingTable th {
-  background-color: black;
+  background-color: #000;
   color: #ffe221;
+}
+
+.standingTable td {
+  background-color: #f8f9fa;
+  color: #333;
 }
 
 .standingHead {
   text-align: center;
-  text-decoration: none;
-  color: #ffe221;
-  margin: 30px;
-  display: block;
-}
-
-.wpos {
-  text-align: center;
+  color: black;
+  margin: 30px 0;
 }
 
 .wpos td {
-  color: #77ff21;
-}
-
-.pos {
-  text-align: center;
+  background-color: #77ff21;
+  color: #000;
 }
 
 .pos td {
-  color: #ff7b21;
-}
-
-table .standingCol {
-  border-bottom: 1px solid #ffffff;
-}
-
-.wpos:hover {
-  background-color: #77ff21;
-}
-
-.wpos:hover td {
-  color: #000000;
-}
-
-.pos:hover {
   background-color: #ff7b21;
+  color: #000;
 }
 
-.pos:hover td {
-  color: #000000;
+.standingTable .standingCol {
+  border-bottom: 1px solid #fff;
 }
-.navbar {
-  margin-bottom: 0; /* Navbar ile arasındaki boşluğu kaldırmak için ekledik */
+
+.standingTable .wpos:hover {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.standingTable .pos:hover {
+  background-color: #ff5722;
+  color: #fff;
 }
