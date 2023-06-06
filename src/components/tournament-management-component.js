@@ -23,7 +23,7 @@ function TournamentManagement() {
   const [availableTeams, setAvailableTeams] = useState([]);
 
   const currentUser = AuthService.getCurrentUser();
-  if (!currentUser || !currentUser.roles.includes('TAKIM_SORUMLUSU') || currentUser.roles('SISTEM_YONETICISI')) {
+  if (!currentUser || !currentUser.roles.includes('SISTEM_YONETICISI')) {
     return <Navigate to="/" />;
   }  
 

@@ -17,7 +17,7 @@ function TeamManagement() {
   const [candidateTeamLeaders, setCandidateTeamLeaders] = useState([]);
 
   const currentUser = AuthService.getCurrentUser();
-  if (!currentUser || !currentUser.roles.includes('TAKIM_SORUMLUSU') || currentUser.roles('SISTEM_YONETICISI')) {
+  if (!currentUser || currentUser.roles.includes('NORMAL')) {
     return <Navigate to="/" />;
   }
 
