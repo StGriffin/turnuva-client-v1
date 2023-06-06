@@ -37,6 +37,8 @@ const MatchManagement = () => {
     matchService.createMatches(tournamentId,teamIds)
       .then(response => {
         console.log(response);
+        fetchTournaments();
+        fetchMatches();
       })
       .catch(error => {
         console.error('Turnuva başlatılamadı :', error);
@@ -59,7 +61,8 @@ const MatchManagement = () => {
             formattedScore
           };
         });
-        setMatches(formattedMatches);
+        const sortedMatches = formattedMatches.sort((a, b) => a.id - b.id);
+        setMatches(sortedMatches);
       })
       .catch(error => {
         console.error('Karşılaşmalar alınamadı:', error);
@@ -92,6 +95,7 @@ const MatchManagement = () => {
     matchService.saveMatchResult(matchId,result)
       .then(response => {
         console.log(response);
+        fetchMatches(selectedTournament);
       })
       .catch(error => {
         console.error('Turnuva başlatılamadı :', error);

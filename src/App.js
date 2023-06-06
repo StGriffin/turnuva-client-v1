@@ -21,8 +21,7 @@ class App extends Component {
     this.logOut = this.logOut.bind(this);
 
     this.state = {
-      showModeratorBoard: false,
-      showAdminBoard: false,
+      showMatchBoard:false,
       showManagementBoard:false,
       currentUser: undefined,
     };
@@ -34,9 +33,8 @@ class App extends Component {
     if (user) {
       this.setState({
         currentUser: user,
-        showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
-        showAdminBoard: user.roles.includes("ROLE_ADMIN"),
-        showManagementBoard:user.roles.includes("TAKIM_SORUMLUSU") || user.roles.includes("NORMAL") || user.roles.includes("SISTEM_YONETICISI")
+        showMatchBoard:user.roles.includes("TAKIM_SORUMLUSU") || user.roles.includes("NORMAL") || user.roles.includes("SISTEM_YONETICISI"),
+        showManagementBoard:user.roles.includes("TAKIM_SORUMLUSU") || user.roles.includes("SISTEM_YONETICISI")
       });
     }
   }
@@ -44,14 +42,12 @@ class App extends Component {
   logOut() {
     AuthService.logout();
     this.setState({
-      showModeratorBoard: false,
-      showAdminBoard: false,
       currentUser: undefined,
     });
   }
 
   render() {
-    const { currentUser, showModeratorBoard, showAdminBoard , showManagementBoard} = this.state;
+    const { currentUser, showMatchBoard , showManagementBoard} = this.state;
 
     return (
       <div>
@@ -81,33 +77,18 @@ class App extends Component {
               </li>
             )}
 
-            {showManagementBoard && (
+            {showMatchBoard && (
               <li className="nav-item">
                 <Link to={"/matchManagement"} className="nav-link">
-                  Karşılaşma Yönetimi
+                  Karşılaşmalar
                 </Link>
               </li>
             )}
 
-          {showManagementBoard && (
+          {showMatchBoard && (
               <li className="nav-item">
                 <Link to={"/standings"} className="nav-link">
                   Puan Durumu
-                </Link>
-              </li>
-            )}
-            {showModeratorBoard && (
-              <li className="nav-item">
-                <Link to={"/mod"} className="nav-link">
-                  Moderator Board
-                </Link>
-              </li>
-            )}
-
-            {showAdminBoard && (
-              <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
-                  Admin Board
                 </Link>
               </li>
             )}

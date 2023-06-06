@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import tournamentService from '../services/tournament-service';
+import { Navigate } from 'react-router-dom';
+
 import '../css/tournament-management.css';
 import Select from 'react-select';
-
+import AuthService from '../services/auth-service'
 
 function TournamentManagement() {
   const [tournaments, setTournaments] = useState([]);
@@ -19,6 +21,11 @@ function TournamentManagement() {
   const [tournamentEditSuccess, setTournamentEditsuccess] = useState(false);
   const [selectedTournamentData, setSelectedTournamentData] = useState(null);
   const [availableTeams, setAvailableTeams] = useState([]);
+
+  const currentUser = AuthService.getCurrentUser();
+  if (!currentUser || !currentUser.roles.includes('TAKIM_SORUMLUSU') || currentUser.roles('SISTEM_YONETICISI')) {
+    return <Navigate to="/" />;
+  }  
 
   const createTournament = () => {
     const tournamentData = {
@@ -148,12 +155,15 @@ function TournamentManagement() {
   };
 
   useEffect(() => {
-    getAllTournaments();
+  
+    const fetchData = async () => {
+      await getAllTournaments();
+      await getAllAvailableTeams();
+    };
+  
+    fetchData();
   }, []);
 
-  useEffect(() => {
-    getAllAvailableTeams();
-  }, []);
 
   return (
     <div className="container">

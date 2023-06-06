@@ -1,41 +1,13 @@
-import React, { Component } from "react";
+import React from 'react';
 
-import UserService from "../services/user-service";
+const Home = () => {
+  return (
+    <div>
+      <h1>Hoş Geldiniz!</h1>
+      <p>Turnuva v1 uygulamasına hoş geldiniz!.</p>
+      <p>Turnuvalarınızı yönetmek ve karşılaşmaları takip etmek için menüyü kullanabilirsiniz.</p>
+    </div>
+  );
+};
 
-export default class Home extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      content: ""
-    };
-  }
-
-  componentDidMount() {
-    UserService.getPublicContent().then(
-      response => {
-        this.setState({
-          content: response.data
-        });
-      },
-      error => {
-        this.setState({
-          content:
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString()
-        });
-      }
-    );
-  }
-
-  render() {
-    return (
-      <div className="container">
-        <header className="jumbotron">
-          <h3>{this.state.content}</h3>
-        </header>
-      </div>
-    );
-  }
-}
+export default Home;

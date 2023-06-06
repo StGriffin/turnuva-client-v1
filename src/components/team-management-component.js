@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import teamService from '../services/team-management-service';
 import Select from 'react-select';
 import { Table, Button } from 'react-bootstrap';
+import AuthService from '../services/auth-service'
+import { Navigate } from 'react-router-dom';
 
 function TeamManagement() {
   const [teams, setTeams] = useState([]);
@@ -14,7 +16,10 @@ function TeamManagement() {
   const [availableUsers, setAvailableUsers] = useState([]);
   const [candidateTeamLeaders, setCandidateTeamLeaders] = useState([]);
 
-
+  const currentUser = AuthService.getCurrentUser();
+  if (!currentUser || !currentUser.roles.includes('TAKIM_SORUMLUSU') || currentUser.roles('SISTEM_YONETICISI')) {
+    return <Navigate to="/" />;
+  }
 
   const teamOptions = [];
 
